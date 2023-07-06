@@ -1,0 +1,45 @@
+{
+  "name": "@layerinfinity/react-native-photo-view-ex",
+  "version": "1.2.0",
+  "description": "Displaying photos with pinch-to-zoom, based on react-native-photo-view",
+  "main": "index.js",
+  "author": {
+    "name": "Alexander Pantyukhov",
+    "email": "alwxndr@gmail.com"
+  },
+  "contributors": [
+    "Alberto Martínez https://github.com/aMarCruz",
+    "Quan Pham https://github.com/Doko-Demo-Doa"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "react-native",
+    "react-component",
+    "ios",
+    "android",
+    "gallery",
+    "lightbox",
+    "pinch",
+    "pinch-to-zoom",
+    "mobile"
+  ],
+  "homepage": "https://github.com/layerinfinity/react-native-photo-view-ex",
+  "bugs": {
+    "url": "https://github.com/layerinfinity/react-native-photo-view-ex/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/layerinfinity/react-native-photo-view-ex.git"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.8.17",
+    "@types/react-native": "^0.67.1",
+    "react-native": ">=0.67.1"
+  },
+  "peerDependencies": {
+    "react-native": ">=0.67.1"
+  }
+}
