@@ -1,5 +1,5 @@
 {
-  "name": "@layerinfinity/react-native-photo-view-ex",
+  "name": "@clip-sub/react-native-photo-view-ex",
   "version": "1.2.0",
   "description": "Displaying photos with pinch-to-zoom, based on react-native-photo-view",
   "main": "lib/commonjs/index",
