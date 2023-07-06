@@ -2,7 +2,11 @@
   "name": "@layerinfinity/react-native-photo-view-ex",
   "version": "1.2.0",
   "description": "Displaying photos with pinch-to-zoom, based on react-native-photo-view",
-  "main": "index.js",
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "src/index",
+  "source": "src/index",
   "author": {
     "name": "Alexander Pantyukhov",
     "email": "alwxndr@gmail.com"
@@ -11,6 +15,16 @@
     "Alberto Martínez https://github.com/aMarCruz",
     "Quan Pham https://github.com/Doko-Demo-Doa"
   ],
+  "scripts": {
+    "test": "jest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "prepack": "bob build",
+    "release": "release-it",
+    "example": "yarn --cwd example",
+    "bootstrap": "yarn example && yarn install && yarn example pods",
+    "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build"
+  },
   "license": "MIT",
   "keywords": [
     "react-native",
@@ -23,6 +37,25 @@
     "pinch-to-zoom",
     "mobile"
   ],
+  "files": [
+    "src",
+    "lib",
+    "android",
+    "ios",
+    "cpp",
+    "*.podspec",
+    "!lib/typescript/example",
+    "!ios/build",
+    "!android/build",
+    "!android/gradle",
+    "!android/gradlew",
+    "!android/gradlew.bat",
+    "!android/local.properties",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__",
+    "!**/.*"
+  ],
   "homepage": "https://github.com/layerinfinity/react-native-photo-view-ex",
   "bugs": {
     "url": "https://github.com/layerinfinity/react-native-photo-view-ex/issues"
@@ -31,15 +64,33 @@
     "type": "git",
     "url": "https://github.com/layerinfinity/react-native-photo-view-ex.git"
   },
-  "dependencies": {
-    "prop-types": "^15.7.0"
-  },
   "devDependencies": {
-    "@types/react": "^18.8.17",
-    "@types/react-native": "^0.67.1",
-    "react-native": ">=0.67.1"
+    "@types/react": "^18.0.0",
+    "@types/react-native": "^0.70.0",
+    "react-native": ">=0.70.0",
+    "react-native-builder-bob": "^0.20.0",
+    "release-it": "^15.0.0",
+    "typescript": "^5.0.0"
   },
   "peerDependencies": {
     "react-native": ">=0.67.1"
-  }
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "lib/"
+  ]
 }

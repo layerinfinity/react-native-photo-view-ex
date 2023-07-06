@@ -2,7 +2,7 @@ declare module "react-native-photo-view-ex" {
 
   import * as React from 'react'
   import {
-    AccessibilityProperties,
+    AccessibilityProps,
     ImageRequireSource,
     ImageURISource,
     LayoutChangeEvent,
@@ -73,7 +73,7 @@ declare module "react-native-photo-view-ex" {
     y: number,
   }>
 
-  export interface PhotoViewProps extends AccessibilityProperties {
+  export interface PhotoViewProps extends AccessibilityProps {
     /**
      * The same as `source` for other React images, except that it does not handle arrays.
      */
