@@ -60,7 +60,7 @@ export default function PhotoView({ source, ...props }: Props) {
     style: _style,
   } = props;
 
-  const style = StyleSheet.flatten([{ width, height }, _style]);
+  const style = StyleSheet.flatten([_style]);
 
   const nativeProps = {
     onPhotoViewerError: onError,
