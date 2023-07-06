@@ -25,54 +25,58 @@ This fork is based on the great work of @alwx (Alexander Pantyuhov) and has this
 
 All this is to adapt it better to my current project (it is not tested on iOS), but feel free to use it.
 
+```bash
+npm i @clip-sub/react-native-photo-view-ex
+```
+
 ## Usage
 
 ```javascript
-import PhotoView from 'react-native-photo-view-ex';
+import PhotoView from "@clip-sub/react-native-photo-view-ex";
 ```
 
 Basics:
 
 ```jsx
-  <PhotoView
-    source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
-    minimumZoomScale={0.5}
-    maximumZoomScale={3}
-    resizeMode="center"
-    onLoad={() => console.log("Image loaded!")}
-    style={{width: 300, height: 300}}
-  />
+<PhotoView
+  source={{ uri: "https://facebook.github.io/react/img/logo_og.png" }}
+  minimumZoomScale={0.5}
+  maximumZoomScale={3}
+  resizeMode="center"
+  onLoad={() => console.log("Image loaded!")}
+  style={{ width: 300, height: 300 }}
+/>
 ```
 
 ### Properties
 
-| Property | Type | Description
-|----------|------|-------------
-| source | Object | The same as `source` for other React images, except that it does not handle arrays.
-| loadingIndicatorSource | Object | Similarly to `source`, but used to render the loading indicator. **Must be a local image**
-| fadeDuration | int | Duration of the fade, in milliseconds.
-| scale | float | Zoom scale
-| maximumZoomScale | float | The maximum allowed zoom scale. The default value is 3.0
-| minimumZoomScale | float | The minimum allowed zoom scale. The default value is 1.0
-| resizeMode | String | **Android only**: One of "center", "contain", "cover", "fitStart", "fitEnd", "stretch". The default is "cover"
-| style | Array or Object | Subset of react-native style. See [index.d.ts](https://github.com/aMarCruz/react-native-photo-view/blob/dev/index.d.ts)
-| showsHorizontalScrollIndicator | bool | **iOS only**: When true, shows a horizontal scroll indicator. The default value is `true`.
-| showsVerticalScrollIndicator | bool | **iOS only**: When true, shows a vertical scroll indicator. The default value is `true`.
-| zoomTransitionDuration | int | **Android only**: Double-tap zoom transition duration, in milliseconds.
+| Property                       | Type            | Description                                                                                                             |
+| ------------------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| source                         | Object          | The same as `source` for other React images, except that it does not handle arrays.                                     |
+| loadingIndicatorSource         | Object          | Similarly to `source`, but used to render the loading indicator. **Must be a local image**                              |
+| fadeDuration                   | int             | Duration of the fade, in milliseconds.                                                                                  |
+| scale                          | float           | Zoom scale                                                                                                              |
+| maximumZoomScale               | float           | The maximum allowed zoom scale. The default value is 3.0                                                                |
+| minimumZoomScale               | float           | The minimum allowed zoom scale. The default value is 1.0                                                                |
+| resizeMode                     | String          | **Android only**: One of "center", "contain", "cover", "fitStart", "fitEnd", "stretch". The default is "cover"          |
+| style                          | Array or Object | Subset of react-native style. See [index.d.ts](https://github.com/aMarCruz/react-native-photo-view/blob/dev/index.d.ts) |
+| showsHorizontalScrollIndicator | bool            | **iOS only**: When true, shows a horizontal scroll indicator. The default value is `true`.                              |
+| showsVerticalScrollIndicator   | bool            | **iOS only**: When true, shows a vertical scroll indicator. The default value is `true`.                                |
+| zoomTransitionDuration         | int             | **Android only**: Double-tap zoom transition duration, in milliseconds.                                                 |
 
 ### Events
 
-| Name | Parameter \* | Description
-|------|--------------|-------------
-| onError | - | Invoked on load error.
-| onLayout | `layout: {x, y, width, height}` | Invoked on mount and layout changes.
-| onLoad | - | Invoked when load completes successfully.
-| onLoadEnd | - | Invoked when load either succeeds or fails.
-| onLoadStart | - | Invoked on load start.
-| onProgress | `loaded, total` | **iOS only**: Invoked on download progress.
-| onScale | `scale, scaleFactor, focusX, focusY` | Callback function called on scale changes.
-| onTap | `scale, x, y` | Callback function called on image tap.
-| onViewTap | `scale, x, y` | Callback function called on tap outside of the image.
+| Name        | Parameter \*                         | Description                                           |
+| ----------- | ------------------------------------ | ----------------------------------------------------- |
+| onError     | -                                    | Invoked on load error.                                |
+| onLayout    | `layout: {x, y, width, height}`      | Invoked on mount and layout changes.                  |
+| onLoad      | -                                    | Invoked when load completes successfully.             |
+| onLoadEnd   | -                                    | Invoked when load either succeeds or fails.           |
+| onLoadStart | -                                    | Invoked on load start.                                |
+| onProgress  | `loaded, total`                      | **iOS only**: Invoked on download progress.           |
+| onScale     | `scale, scaleFactor, focusX, focusY` | Callback function called on scale changes.            |
+| onTap       | `scale, x, y`                        | Callback function called on image tap.                |
+| onViewTap   | `scale, x, y`                        | Callback function called on tap outside of the image. |
 
 \* In the `nativeEvent` property.
 
@@ -100,52 +104,52 @@ react-native link react-native-photo-view-ex
 
 1. Add these lines to `android/settings.gradle`
 
-    ```groovy
-    include ':react-native-photo-view-ex'
-    project(':react-native-photo-view-ex').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-photo-view-ex/android')
-    ```
+   ```groovy
+   include ':react-native-photo-view-ex'
+   project(':react-native-photo-view-ex').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-photo-view-ex/android')
+   ```
 
 2. Add the dependency to `android/app/build.gradle`
 
-    ```groovy
-    dependencies {
-      implementation project(':react-native-photo-view-ex')
-    }
-    ```
+   ```groovy
+   dependencies {
+     implementation project(':react-native-photo-view-ex')
+   }
+   ```
 
 3. Register `PhotoViewPackage` in your `MainApplication.java`:
 
-    ```java
-    import io.amarcruz.photoview.PhotoViewPackage;
+   ```java
+   import io.amarcruz.photoview.PhotoViewPackage;
 
-    // ...
+   // ...
 
-    public class MainActivity extends ReactActivity {
-      // ...
+   public class MainActivity extends ReactActivity {
+     // ...
 
-      @Override
-      protected List<ReactPackage> getPackages() {
-        return Arrays.<ReactPackage>asList(
-            new MainReactPackage(),
-            new PhotoViewPackage() // add this manager
-        );
-      }
+     @Override
+     protected List<ReactPackage> getPackages() {
+       return Arrays.<ReactPackage>asList(
+           new MainReactPackage(),
+           new PhotoViewPackage() // add this manager
+       );
+     }
 
-      // ...
-    }
-    ```
+     // ...
+   }
+   ```
 
 ### iOS
 
 1. Add this line to your podfile
 
-    ```pod
-    pod 'react-native-photo-view-ex', path: '../node_modules/react-native-photo-view-ex'
-    ```
+   ```pod
+   pod 'react-native-photo-view-ex', path: '../node_modules/react-native-photo-view-ex'
+   ```
 
 2. Run `pod install`
 
-[license-badge]:  https://img.shields.io/badge/license-MIT-blue.svg?style=flat
-[license-url]:    https://github.com/aMarCruz/react-native-photo-view-ex/blob/dev/LICENSE
-[npm-badge]:      https://img.shields.io/npm/v/react-native-photo-view-ex.svg
-[npm-url]:        https://www.npmjs.com/package/react-native-photo-view-ex
+[license-badge]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
+[license-url]: https://github.com/aMarCruz/react-native-photo-view-ex/blob/dev/LICENSE
+[npm-badge]: https://img.shields.io/npm/v/react-native-photo-view-ex.svg
+[npm-url]: https://www.npmjs.com/package/react-native-photo-view-ex

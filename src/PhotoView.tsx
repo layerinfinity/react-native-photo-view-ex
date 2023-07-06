@@ -10,28 +10,28 @@ interface Props extends ViewProps {
   source: {
     uri: string;
   };
-  loadingIndicatorSource: {
+  loadingIndicatorSource?: {
     uri: string;
   };
-  fadeDuration: number;
+  fadeDuration?: number;
   minimumZoomScale: number;
   maximumZoomScale: number;
-  resizeMode:
+  resizeMode?:
     | "center"
     | "contain"
     | "cover"
     | "fitEnd"
     | "fitStart"
     | "stretch";
-  scale: number;
-  onError: (error: any) => void;
-  onLoad: () => void;
-  onLoadEnd: () => void;
-  onLoadStart: () => void;
-  onProgress: (event: any) => void;
-  onScale: (event: any) => void;
-  onTap: (event: any) => void;
-  onViewTap: (event: any) => void;
+  scale?: number;
+  onError?: (error: any) => void;
+  onLoad?: () => void;
+  onLoadEnd?: () => void;
+  onLoadStart?: () => void;
+  onProgress?: (event: any) => void;
+  onScale?: (event: any) => void;
+  onTap?: (event: any) => void;
+  onViewTap?: (event: any) => void;
 }
 
 const PhotoViewComp = requireNativeComponent(
