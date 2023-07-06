@@ -9,8 +9,6 @@ import {
 interface Props extends ViewProps {
   source: {
     uri: string;
-    height: number;
-    width: number;
   };
   loadingIndicatorSource: {
     uri: string;
@@ -46,7 +44,7 @@ export default function PhotoView({ source, ...props }: Props) {
     return null;
   }
 
-  const { width, height, ...src } = source;
+  const { ...src } = source;
 
   const {
     loadingIndicatorSource,
